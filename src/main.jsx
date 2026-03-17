@@ -6,7 +6,8 @@ import './index.css'
 import App from './App.jsx'
 import JobPostForm from './admin_pages/job_posting.jsx'
 import ViewJob from './user_pages/viewjob.jsx'
-import TopTicker from './components/topticker.jsx'
+import TestJobPage from './user_pages/test_viewjob.jsx'
+import OldJob from './user_pages/oldthing.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -14,7 +15,7 @@ createRoot(document.getElementById('root')).render(
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/post-job" element={<JobPostForm />} />
-        <Route path="/view-job" element={<ViewJob />} />
+        <Route path="/view-job/:slug" element={<ViewJob />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>

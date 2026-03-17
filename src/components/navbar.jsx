@@ -64,7 +64,7 @@ function Navbar({ bp = {}, onMenuOpen = () => {} }) {
               color: C.primary,
             }}
           >
-            Code<span style={{ color: C.accent }}>Techniques</span>
+            Daily <span style={{ color: C.accent }}>Job Openings</span>
           </span>
         </a>
 
