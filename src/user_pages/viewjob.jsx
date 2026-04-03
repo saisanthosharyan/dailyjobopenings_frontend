@@ -125,7 +125,7 @@ function SectionTitle({ text }) {
   return (
     <h2 style={{
       fontFamily: "'Syne',sans-serif", fontSize: 16, fontWeight: 700,
-      display: "flex", alignItems: "center", gap: 8, margin: "0 0 18px",
+      display: "flex", alignItems: "center", gap: 8, margin: "0 0 18px",color:"black"
     }}>
       <span style={{ width: 4, height: 20, background: C.accent, borderRadius: 3, display: "inline-block", flexShrink: 0 }} />
       {text}
@@ -152,7 +152,7 @@ function SectionLabel({ children }) {
   return (
     <div style={{
       fontSize: 10.5, fontWeight: 700, color: C.muted,
-      textTransform: "uppercase", letterSpacing: "0.7px", marginBottom: 5,
+      textTransform: "uppercase", letterSpacing: "0.7px", marginBottom: 5
     }}>
       {children}
     </div>
@@ -328,22 +328,31 @@ function Sidebar({ job }) {
             <div style={{ fontSize: 12, color: C.muted }}>{job.companyName}</div>
           </div>
         </div>
-        {[
-          ["Industry", 'IT'],
-          ["Size",     "BIG"],
-          ["Founded",  "Today"],
-        ].map(([lbl, val]) => (
-          <div key={lbl} style={{ display: "flex", justifyContent: "space-between", fontSize: 12.5, padding: "5px 0", borderBottom: `1px solid ${C.border}` }}>
-            <span style={{ color: C.muted }}>{lbl}</span>
-            <span style={{ fontWeight: 500 }}>{val}</span>
+                <div style={{ marginTop: 10 }}>
+          {/* <div style={{
+            fontSize: 12,
+            fontWeight: 700,
+            color: C.text,
+            marginBottom: 6
+          }}>
+            About Company
+          </div> */}
+
+          <div style={{
+            fontSize: 12.5,
+            color: C.muted,
+            lineHeight: 1.6
+          }}>
+            {job.aboutCompany && job.aboutCompany.trim() !== ""
+              ? job.aboutCompany
+              : "No company description provided"}
           </div>
-        ))}
-        <div style={{ display: "flex", justifyContent: "space-between", fontSize: 12.5, padding: "5px 0" }}>
-          <span style={{ color: C.muted }}>Rating</span>
-          <span style={{ fontWeight: 600, color: C.gold }}>5⭐ {job.companyRating} / 5</span>
         </div>
-        <a
-          href="#"
+         <a
+          href={job.companyCareersLink}
+          target="_blank"
+          rel="noopener noreferrer"
+
           style={{
             display: "block", textAlign: "center", marginTop: 12,
             fontSize: 12.5, color: C.primary, fontWeight: 600,
@@ -459,7 +468,7 @@ const fetchJob = async () => {
   return (
     <div style={{ fontFamily: "'DM Sans',sans-serif", background: C.light, color: C.text, minHeight: "100vh" , width: "100%" , overflowX: "hidden"}}>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap');
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
         a { text-decoration: none; color: inherit; }
         ul { list-style: disc; padding-left: 20px; }
@@ -576,8 +585,8 @@ const fetchJob = async () => {
             <div style={{ display: "flex", gap: 16, alignItems: "flex-start", flexWrap: "wrap" }}>
 <div
   style={{
-    width: isMobile ? 54 : 72,
-    height: isMobile ? 54 : 72,
+    width: isMobile ? 54 : 100,
+    height: isMobile ? 54 : 100,
     borderRadius: 12,
     background: "#fff",
     display: "flex",
@@ -630,7 +639,7 @@ const fetchJob = async () => {
                 </div>
 
                 <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>
-                  <Tag>📍 {isMobile ? "Pune, MH" : job.location}</Tag>
+                  <Tag>📍 {job.location}</Tag>
                   <Tag>🏠 {job.workMode}</Tag>
 <Tag>
   📅 {job.createdAt ? new Date(job.createdAt).toDateString() : "N/A"}
@@ -826,7 +835,7 @@ const fetchJob = async () => {
                 ["Job Category",     <Pill bg="#fff0f0"  color={C.accent}>{job.jobCategory}</Pill>],
                 ["Experience Level", <Pill bg="#dcfce7"  color="#15803d">{job.experienceLevel}</Pill>],
                 ["Work Mode",        <div style={{ fontSize: 13.5, fontWeight: 500 }}>🏠 {job.workMode}</div>],
-                ["Location",         <div style={{ fontSize: 13.5, fontWeight: 500 }}>📍 {isMobile ? "Pune, MH" : job.location}</div>],
+                ["Location",         <div style={{ fontSize: 13.5, fontWeight: 500 }}>📍 {job.location}</div>],
                 ["Education",        <div style={{ fontSize: 13.5, fontWeight: 500 }}>{job.education}</div>],
                 ["Eligible Batch",   <div style={{ fontSize: 13.5, fontWeight: 500 }}>{job.eligibleBatches}</div>],
                 ["Department",       <div style={{ fontSize: 13.5, fontWeight: 500 }}>{job.department}</div>],
@@ -848,7 +857,7 @@ const fetchJob = async () => {
           </Card>
 
           {/* ── JOB DESCRIPTION ── */}
-          <Card style={{ marginBottom: 14 }}>
+          <Card style={{ marginBottom: 14,textAlign:"left" }}>
             <SectionTitle text="Job Description" />
 
             <p style={{ fontSize: 13.5, color: C.text, lineHeight: 1.8, marginBottom: 20 }}>

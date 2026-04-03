@@ -176,7 +176,7 @@ function ApplyWithAIButton({ fullWidth = false }) {
             }}
           />
         )}
-        <span style={{ position: "relative", zIndex: 1 }}>✨ Apply with AI</span>
+        <span style={{ position: "relative", zIndex: 1000 }}>✨ Apply with AI</span>
       </button>
     </>
   );
