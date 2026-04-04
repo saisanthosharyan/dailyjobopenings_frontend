@@ -10,6 +10,8 @@ import Contact from './user_pages/contactus.jsx'
 import Privacy from './user_pages/privacy.jsx'
 import Advertise from './user_pages/advertise_with_us.jsx'
 import ResourcesPage from './user_pages/ResourcesPage.jsx'
+import Jobcategories from './user_pages/jobcategeories.jsx'
+import InterviewQuestionsPage from './user_pages/interviewquespage.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -23,6 +25,9 @@ createRoot(document.getElementById('root')).render(
         <Route path="/privacy" element={<Privacy />} />
         <Route path="/advertise-with-us" element={<Advertise />} />
         <Route path="/resources" element={<ResourcesPage />} />
+        <Route path="/jobs/categories/:category" element={<Jobcategories />} />
+        <Route path="/interview-questions" element={<InterviewQuestionsPage />} />
+
       </Routes>
     </BrowserRouter>
   </StrictMode>
