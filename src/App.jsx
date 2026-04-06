@@ -10,7 +10,7 @@ import TopCompanies from "./components/home_page_components/topcompanies";
 import JobsByLocation from "./components/home_page_components/job_by_location";
 import API_BASE_URL from "./config/api";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
+import WalkInDrivesPage from "./user_pages/walk_in_jobs";
 
 
 const C = {
@@ -315,8 +315,11 @@ export default function App() {
   bp={bp}
   onMenuOpen={() => {}}
   onNavigate={(page) => navigate(`/${page}`)}
-  activePage={location.pathname.replace("/", "")}
+  activePage={location.pathname.split("/")[1]}
 />
+<Routes>
+  <Route path="/walk-in-drive" element={<WalkInDrivesPage />} />
+</Routes>
 
       {/* ── Hero: full width ── */}
       <div className="section-full" style={{ background: "linear-gradient(135deg,#0f4c81 0%,#1565c0 60%,#0d47a1 100%)", color: "#fff", padding: "48px 0 40px" }}>

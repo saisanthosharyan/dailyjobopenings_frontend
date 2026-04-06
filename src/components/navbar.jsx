@@ -22,7 +22,7 @@ const NAV_ITEMS = [
       { icon: "🌍", label: "Abroad Jobs", key: "abroad", desc: "International roles" },
     ],
   },
-  { label: "Walk in Drive" },
+  { label: "Walk in Drive", page: "walk-in-drive" },
   {
     label: "Internships",
     dropdown: [

@@ -17,6 +17,7 @@ import AdminDashboard from './admin/pages/adminDashboard.jsx'
 import Admins from './admin/pages/manageAdmins.jsx'
 import ProtectedRoute from "./admin/components/ProtectedRoute";
 import ManageJobs from './admin/pages/manageJobs.jsx'
+import WalkInDrivesPage from './user_pages/walk_in_jobs.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -35,6 +36,7 @@ createRoot(document.getElementById('root')).render(
         <Route path="/admin/dashboard" element={<AdminDashboard />} />
         <Route path="/admin/manage-jobs" element={<ManageJobs />} />
         <Route path="/admin/manage-admins" element={<Admins />} />
+        <Route path="/walk-in-drive" element={<WalkInDrivesPage/>}/>
 
       </Routes>
     </BrowserRouter>
